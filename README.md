@@ -18,17 +18,17 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
 ## Image Comparison
 
 - AWS
- - Support: OpenLogic support included
- - Fees: AWS infrastructure fees + OpenLogic image fees
+  - Support: OpenLogic support **included**
+  - Fees: AWS infrastructure fees + OpenLogic image fees
 - Azure
- - Support: OpenLogic support **not** included
- - Fees: Azure infrastructure fees only
+  - Support: OpenLogic support **_NOT_** included
+  - Fees: Azure infrastructure fees only (no OpenLogic image fees)
 - Google
- - Support: OpenLogic support included
- - Fees: Google infrastructure fees + OpenLogic image fees
+  - Support: OpenLogic support **included**
+  - Fees: Google infrastructure fees + OpenLogic image fees
 - VirtualBox
- - Support: OpenLogic support **not** included
- - Fees: None (unless you have internal fees for running VirtualBox VMs)
+  - Support: OpenLogic support **_NOT_** included
+  - Fees: None (unless you have internal fees for running VirtualBox VMs)
 
 ## Configuration 
 
