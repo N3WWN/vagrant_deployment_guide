@@ -7,7 +7,7 @@
 
 All boxes use the latest OpenLogic cloud image for the CentOS version as of the date encoded in the release version.
 
-_i.e. `8.2.20201021` will launch the latest OpenLogic CentOS 8.2 images on each cloud provider as of Oct 21, 2020._
+_i.e. `8.2.20201022` will launch the latest OpenLogic CentOS 8.2 images on each cloud provider as of Oct 22, 2020._
 
 ## Image Variations
 
