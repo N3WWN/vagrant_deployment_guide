@@ -20,15 +20,22 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
 - AWS
   - Support: OpenLogic support **included**
   - Fees: AWS infrastructure fees + OpenLogic image fees
+  - Version: OpenLogic enhanced support - CentOS 8 Standard (ENA-enabled) - centos-8-2-plain-v20200715 (ami-00d8e9bc97739411e)
+  - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B084T81SXD/)
 - Azure
   - Support: OpenLogic support **_NOT_** included
   - Fees: Azure infrastructure fees only (no OpenLogic image fees)
+  - Version: OpenLogic:CentOS:8_2-gen2:8.2.2020100601
+  - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
 - Google
   - Support: OpenLogic support **included**
   - Fees: Google infrastructure fees + OpenLogic image fees
+  - Version: centos-8-2-plain-v20200715
+  - Marketplace: [Perforce/OpenLogic @ Google Cloud Marketplace](https://console.cloud.google.com/marketplace/partners/zend-integration-public)
 - VirtualBox
   - Support: OpenLogic support **_NOT_** included
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
+  - Version: centos-8-2-plain-v20201021
 
 ## Configuration 
 
