@@ -1,3 +1,6 @@
+![OpenLogic by Perforce](https://cdn.brandfolder.io/UEOJKODA/at/pwujp1-aw3f3c-1rgw2v/logo-openlogic-tagline.png?width=600&height=189)
+
+
 # ***DO NOT USE - FOR OPENLOGIC TESTING ONLY***
 
 ## Image Versions
@@ -79,3 +82,16 @@ The Google Vagrantfile takes advantage of the [vagrant-google](https://github.co
 ### VirtualBox
 
 The VirtualBox Vagrantfile requires no additional plugins or configuration.
+
+
+## Support
+
+Included with some of our images (see the table above) is 9x5 email-only support from our team of Tier 4 architects and engineers.  
+
+Please send support requests to support@openlogic.com including your name, email, CentOS solution name and Cloud Account ID that is running this image.
+
+Silver (12x5) and Gold (24x7) support options are also available. 
+
+## Next Steps
+
+If you want to learn more about OpenLogic by Perforce, our Open Source Software support, including CentOS support, visit us at http://www.openlogic.com , email us at info@roguewave.com or call us at +1 800.487.3217
