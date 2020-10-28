@@ -1,8 +1,6 @@
 ![OpenLogic by Perforce](https://cdn.brandfolder.io/UEOJKODA/at/pwujp1-aw3f3c-1rgw2v/logo-openlogic-tagline.png?width=600&height=189)
 
 
-# ***DO NOT USE - FOR OPENLOGIC TESTING ONLY***
-
 ## Image Versions
 
 All boxes use the latest OpenLogic cloud image for the CentOS version as of the date encoded in the release version.
