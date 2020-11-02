@@ -95,7 +95,7 @@ The VirtualBox Vagrantfile requires no additional plugins or configuration.
 
 Included with some of our images (see the table above) is 9x5 email-only support from our team of Tier 4 architects and engineers.  
 
-Please send support requests to support@openlogic.com including your name, email, CentOS solution name and Cloud Account ID that is running this image.
+Please send support requests to image-support@openlogic.com including your name, email, CentOS solution name and Cloud Account ID that is running this image.
 
 Silver (12x5) and Gold (24x7) support options are also available. 
 
