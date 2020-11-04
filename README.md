@@ -99,4 +99,4 @@ Silver (12x5) and Gold (24x7) support options are also available.
 
 ## Next Steps
 
-If you want to learn more about OpenLogic by Perforce, our Open Source Software support, including CentOS support, visit us at http://www.openlogic.com , email us at info@roguewave.com or call us at +1 800.487.3217
+If you want to learn more about OpenLogic by Perforce, our Open Source Software support, including CentOS support, visit us at http://www.openlogic.com , email us at info@perforce.com or call us at +1 612.517.2100
