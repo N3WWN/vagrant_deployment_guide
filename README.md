@@ -5,7 +5,7 @@
 
 All boxes use the latest OpenLogic cloud image for the CentOS version as of the date encoded in the release version.
 
-_i.e. `8.2.20201028` will launch the latest OpenLogic CentOS 8.2 images on each cloud provider as of Oct 28, 2020._
+_i.e. `7.8.20201123` will launch the latest OpenLogic CentOS 8.2 images on each cloud provider as of Nov 23, 2020._
 
 ## Image Variations
 
@@ -18,22 +18,22 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
 - AWS
   - Support: OpenLogic support **included**
   - Fees: AWS infrastructure fees + OpenLogic image fees
-  - Version: OpenLogic enhanced support - CentOS 8 Standard (ENA-enabled) - centos-8-2-plain-v20200715 (ami-00d8e9bc97739411e)
-  - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B084T81SXD/)
+  - Version: OpenLogic enhanced support - CentOS 7 Standard (ENA-enabled) - centos-7.8-plain-v20200709 (ami-093929d89cc8c4aed)
+  - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B082325LCR/)
 - Azure
   - Support: OpenLogic support **_NOT_** included
   - Fees: Azure infrastructure fees only (no OpenLogic image fees)
-  - Version: OpenLogic:CentOS:8_2-gen2:8.2.2020100601
+  - Version: OpenLogic:CentOS:7_8-gen2:7.8.2020111301
   - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
 - Google
   - Support: OpenLogic support **included**
   - Fees: Google infrastructure fees + OpenLogic image fees
-  - Version: centos-8-2-plain-v20200715
+  - Version: centos-7-8-plain-v20200709
   - Marketplace: [Perforce/OpenLogic @ Google Cloud Marketplace](https://console.cloud.google.com/marketplace/partners/zend-integration-public)
 - VirtualBox
   - Support: OpenLogic support **_NOT_** included
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
-  - Version: centos-8-2-plain-v20201021
+  - Version: centos-7-8-plain-v20201123
 
 ## Configuration 
 
