@@ -35,7 +35,40 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
   - Version: centos-8-2-plain-v20201021
 
-## Configuration 
+## Configuration
+
+### Known working vagrant/plugin versions
+
+- Vagrant
+  - Vagrant 2.2.10
+  - Vagrant 2.2.14
+  
+- vagrant-aws plugin
+  - vagrant-aws 0.7.2 ([OpenLogic modified plugin](https://github.com/N3WWN/vagrant-aws/blob/master/pkg/vagrant-aws-0.7.2.gem))
+- vagrant-azure plugin
+  - vagrant-azure 2.0.0 ([OpenLogic modified plugin](https://github.com/N3WWN/vagrant-azure/blob/v2.0/pkg/vagrant-azure-2.0.0.gem))
+- vagrant-google plugin
+  - vagrant-google [2.5.0](https://github.com/mitchellh/vagrant-google)
+
+In order to be able to use all providers, install the plugins in this order: 
+
+`vagrant-aws -> vagrant-azure -> vagrant-google`
+
+If you only wish to use one of the providers, you do not need to use the OpenLogic modified plugins, but we recommend that you use the version(s) listed.
+
+### Known issues with the following vagrant/plugin versions
+
+Because of fog-google interdependencies, the stock aws and azure plugins (installed via `vagrant plugin install vagrant-aws`, for instance) do not play well together with the google plugin:
+
+- vagrant-aws plugin
+  - vagrant-aws 0.7.2 (stock plugin)
+- vagrant-azure plugin
+  - vagrant-azure 2.0.0 (stock plugin)
+  
+The stock google plugin is too old:
+
+- vagrant-google plugin
+  - vagrant-google 0.2.3 (stock plugin)
 
 ### AWS
 
