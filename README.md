@@ -18,7 +18,7 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
 - AWS
   - Support: OpenLogic support **included**
   - Fees: AWS infrastructure fees + OpenLogic image fees
-  - Version: OpenLogic enhanced support - CentOS 8 Standard (ENA-enabled) - centos-8-2-plain-v20200715 (ami-00d8e9bc97739411e)
+  - Version: OpenLogic enhanced support - CentOS 8 Standard (ENA-enabled) - centos-8-2-plain-v20200715
   - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B084T81SXD/)
 - Azure
   - Support: OpenLogic support **_NOT_** included
@@ -35,7 +35,7 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
   - Version: centos-8-2-plain-v20201021
 
-## Configuration
+## Preparing your system
 
 ### Known working vagrant/plugin versions
 
@@ -69,6 +69,46 @@ The stock google plugin is too old:
 
 - vagrant-google plugin
   - vagrant-google 0.2.3 (stock plugin)
+  
+### Installing the boxes
+
+Some providers require additional steps to install, configure or use
+
+- VirtualBox
+  - No special configuration or installation required
+  - `vagrant init openlogic/centos-8`
+  - `vagrant up --provider=virtualbox`
+
+All others require some additional steps
+
+- All (metadata json method)
+  - This method is preferred since it preserves the box version info
+  - `wget https://github.com/N3WWN/vagrant_deployment_guide/raw/centos-8/metadata-8.json`
+    - NOTE: You must re-download this file if a new box version is released, but it will contain all published versions
+  - `vagrant box add ./metadata-8.json`
+  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-8.json`
+  - `vagrant init openlogic/centos-8`
+- All (Full URL method)
+  - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/centos-8' (v0) for provider: azure`
+  - `vagrant box add --name openlogic/centos-8 --provider aws https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/aws.box`
+  - `vagrant box add --name openlogic/centos-8 --provider azure https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/azure.box`
+  - `vagrant box add --name openlogic/centos-8 --provider google https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/google.box`
+  - `vagrant init openlogic/centos-8`
+  
+- AWS
+  - Perform your chosen "All" method above
+  - Edit Vagrantfile, adding the information shown in the next section for the AWS provider
+  - `vagrant up --provider=aws`
+- Azure
+  - Perform your chosen "All" method above
+  - Edit Vagrantfile, adding the information shown in the next section for the Azure provider
+  - `vagrant up --provider=azure`
+- Google
+  - Perform your chosen "All" method above
+  - Edit Vagrantfile, adding the information shown in the next section for the Google provider
+  - `vagrant up --provider=google`
+
+## Configuration
 
 ### AWS
 
@@ -79,12 +119,14 @@ The AWS Vagrantfile takes advantage of the [vagrant-aws](https://github.com/mitc
     aws.access_key_id = "YOUR KEY"
     aws.secret_access_key = "YOUR SECRET KEY"
     aws.session_token = "SESSION TOKEN"
-    aws.keypair_name = "KEYPAIR NAME"
 
+    #aws.region = "REGION"
     aws.keypair_name = "KEYPAIR NAME"
     override.ssh.private_key_path = "/path/to/your/private_key"
   end
 ```
+
+The AWS AMI ID changes in each region.  By default, the default AMI in the box file is for region us-east-1.  If you wish to launch the instance within a different region, uncomment the `aws.region` parameter and set it appropriately.
 
 ### Azure
 
@@ -121,6 +163,31 @@ The Google Vagrantfile takes advantage of the [vagrant-google](https://github.co
 
 The VirtualBox Vagrantfile requires no additional plugins or configuration.
 
+## Getting rid of the WARNING message (non-Virtualbox providers)
+
+There is a warning message presented every time you execute a vagrant command with a cloud provider.
+
+```
+WARNING - There are Azure and OpenLogic fees associated with running this image.
+  HINT: Add '$OPENLOGIC_CONFIRM="no"' to your Vagrantfile to skip this confirmation.
+Enter 'Y' to continue: 
+```
+
+Normally you **must** enter a single capital Y and hit enter to proceed.
+
+If you wish to bypass this requirement, you can do it one of two ways:
+
+1. Set and export an environment variable named `OPENLOGIC_CONFIRM` to a non-null value: `export OPENLOGIC_CONFIRM=skip`
+
+-or-
+
+2. Add `$OPENLOGIC_CONFIRM="no"` somewhere in your Vagrantfile
+
+The message will be displayed as an info message without a confirmation:
+
+```
+INFO - You have accepted all Azure and OpenLogic charges associated with running this image.
+```
 
 ## Support
 
