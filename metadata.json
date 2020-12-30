@@ -1,0 +1,27 @@
+{
+   "description" : "A collection of OpenLogic's CentOS 8 public and private cloud images (supported and unsupported)",
+   "name" : "openlogic/centos-8",
+   "versions" : [
+      {
+         "providers" : [
+            {
+               "url" : "https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/aws.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/azure.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/google.box",
+               "name" : "google"
+            },
+            {
+               "url" : "https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/virtualbox.box",
+               "name" : "virtualbox"
+            }
+         ],
+         "version" : "8.2.20201028"
+      }
+   ]
+}
