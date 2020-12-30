@@ -121,12 +121,15 @@ The AWS Vagrantfile takes advantage of the [vagrant-aws](https://github.com/mitc
     aws.session_token = "SESSION TOKEN"
 
     #aws.region = "REGION"
+    #aws.instance_type = "TYPE"
     aws.keypair_name = "KEYPAIR NAME"
     override.ssh.private_key_path = "/path/to/your/private_key"
   end
 ```
 
 The AWS AMI ID changes in each region.  By default, the default AMI in the box file is for region us-east-1.  If you wish to launch the instance within a different region, uncomment the `aws.region` parameter and set it appropriately.
+
+The default instance type is t3.small (2x vCPU, 2 GB RAM) because it is available in 51 of the 53 availability zones (as of Dec 30, 2020).  
 
 ### Azure
 
