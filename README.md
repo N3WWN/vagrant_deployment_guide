@@ -5,7 +5,7 @@
 
 All boxes use the latest OpenLogic cloud image for the CentOS version as of the date encoded in the release version.
 
-_i.e. `7.8.20201123` will launch the latest OpenLogic CentOS 7.8 images on each cloud provider as of Nov 23, 2020._
+_i.e. `7.9.20201231` will launch the latest OpenLogic CentOS 7.9 images on each cloud provider as of Dec 31, 2020._
 
 ## Image Variations
 
@@ -18,22 +18,22 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
 - AWS
   - Support: OpenLogic support **included**
   - Fees: AWS infrastructure fees + OpenLogic image fees
-  - Version: OpenLogic enhanced support - CentOS 7 Standard (ENA-enabled) - centos-7-8-plain-v20200709
+  - Version: OpenLogic enhanced support - CentOS 7 Standard (ENA-enabled) - centos-7-9-plain-v20201215
   - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B082325LCR/)
 - Azure
   - Support: OpenLogic support **_NOT_** included
   - Fees: Azure infrastructure fees only (no OpenLogic image fees)
-  - Version: OpenLogic:CentOS:7_8-gen2:7.8.2020111301
+  - Version: OpenLogic:CentOS:7_9-gen2:7.9.2020111901
   - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
 - Google
   - Support: OpenLogic support **included**
   - Fees: Google infrastructure fees + OpenLogic image fees
-  - Version: centos-7-8-plain-v20200709
+  - Version: openlogic-centos-7-9-plain-v20201124
   - Marketplace: [Perforce/OpenLogic @ Google Cloud Marketplace](https://console.cloud.google.com/marketplace/partners/zend-integration-public)
 - VirtualBox
   - Support: OpenLogic support **_NOT_** included
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
-  - Version: centos-7-8-plain-v20201123
+  - Version: centos-7-9-plain-v20201215
 
 ## Preparing your system
 
@@ -98,9 +98,9 @@ All others require some additional steps
   - Proceed to the provider specific steps below
 - Full URL method
   - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/centos-7' (v0) for provider: azure`
-  - `vagrant box add --name openlogic/centos-7 --provider aws https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.8.20201123/providers/aws.box`
-  - `vagrant box add --name openlogic/centos-7 --provider azure https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.8.20201123/providers/azure.box`
-  - `vagrant box add --name openlogic/centos-7 --provider google https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.8.20201123/providers/google.box`
+  - `vagrant box add --name openlogic/centos-7 --provider aws https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.9.20201231/providers/aws.box`
+  - `vagrant box add --name openlogic/centos-7 --provider azure https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.9.20201231/providers/azure.box`
+  - `vagrant box add --name openlogic/centos-7 --provider google https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.9.20201231/providers/google.box`
   - `vagrant init openlogic/centos-7`
   - Proceed to the provider specific steps below
 
