@@ -133,6 +133,7 @@ The AWS Vagrantfile takes advantage of the [vagrant-aws](https://github.com/mitc
 
     #aws.region = "REGION"
     #aws.instance_type = "TYPE"
+    aws.subnet_id = "SUBNET"
     aws.keypair_name = "KEYPAIR NAME"
     override.ssh.private_key_path = "/path/to/your/private_key"
   end
