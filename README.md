@@ -18,7 +18,7 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
 - AWS
   - Support: OpenLogic support **included**
   - Fees: AWS infrastructure fees + OpenLogic image fees
-  - Version: OpenLogic enhanced support - CentOS 7 Standard (ENA-enabled) - centos-7.8-plain-v20200709 (ami-093929d89cc8c4aed)
+  - Version: OpenLogic enhanced support - CentOS 7 Standard (ENA-enabled) - centos-7-8-plain-v20200709
   - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B082325LCR/)
 - Azure
   - Support: OpenLogic support **_NOT_** included
@@ -35,7 +35,7 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
   - Version: centos-7-8-plain-v20201123
 
-## Configuration 
+## Preparing your system
 
 ### Known working vagrant/plugin versions
 
@@ -70,6 +70,52 @@ The stock google plugin is too old:
 - vagrant-google plugin
   - vagrant-google 0.2.3 (stock plugin)
 
+### Installing the boxes
+
+Some providers require additional steps to install, configure or use
+
+- VirtualBox
+  - No special configuration or installation required
+  - `vagrant init openlogic/centos-8`
+  - `vagrant up --provider=virtualbox`
+
+All others require some additional steps
+
+**Common Steps** (choose either Metatdata or Full URL method)
+
+- Metadata method
+  - This method is preferred since it preserves the box version info
+  - `wget https://github.com/N3WWN/vagrant_deployment_guide/raw/centos-7/metadata-7.json`
+    - NOTE: You must re-download this file if a new box version is released, but it will contain all published versions
+  - `vagrant box add ./metadata-7.json`
+  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-7.json`
+  - `vagrant init openlogic/centos-7`
+  - Proceed to the provider specific steps below
+- Full URL method
+  - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/centos-7' (v0) for provider: azure`
+  - `vagrant box add --name openlogic/centos-7 --provider aws https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.8.20201123/providers/aws.box`
+  - `vagrant box add --name openlogic/centos-7 --provider azure https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.8.20201123/providers/azure.box`
+  - `vagrant box add --name openlogic/centos-7 --provider google https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.8.20201123/providers/google.box`
+  - `vagrant init openlogic/centos-7`
+  - Proceed to the provider specific steps below
+
+**Provider-specific Steps**
+
+- AWS
+  - Perform your chosen "All" method above
+  - Edit Vagrantfile, adding the information shown in the next section for the AWS provider
+  - `vagrant up --provider=aws`
+- Azure
+  - Perform your chosen "All" method above
+  - Edit Vagrantfile, adding the information shown in the next section for the Azure provider
+  - `vagrant up --provider=azure`
+- Google
+  - Perform your chosen "All" method above
+  - Edit Vagrantfile, adding the information shown in the next section for the Google provider
+  - `vagrant up --provider=google`
+
+## Configuration
+
 ### AWS
 
 The AWS Vagrantfile takes advantage of the [vagrant-aws](https://github.com/mitchellh/vagrant-aws) plugin and requires at least this minimum configuration:
@@ -79,12 +125,17 @@ The AWS Vagrantfile takes advantage of the [vagrant-aws](https://github.com/mitc
     aws.access_key_id = "YOUR KEY"
     aws.secret_access_key = "YOUR SECRET KEY"
     aws.session_token = "SESSION TOKEN"
-    aws.keypair_name = "KEYPAIR NAME"
 
+    #aws.region = "REGION"
+    #aws.instance_type = "TYPE"
     aws.keypair_name = "KEYPAIR NAME"
     override.ssh.private_key_path = "/path/to/your/private_key"
   end
 ```
+
+The AWS AMI ID changes in each region.  By default, the default AMI in the box file is for region us-east-1.  If you wish to launch the instance within a different region, uncomment the `aws.region` parameter and set it appropriately.
+
+The default instance type is t3.small (2x vCPU, 2 GB RAM) because it is available in all 16 regions (that I can see) as well as 51 of the 53 availability zones (that I can see... as of Dec 30, 2020).
 
 ### Azure
 
@@ -121,6 +172,31 @@ The Google Vagrantfile takes advantage of the [vagrant-google](https://github.co
 
 The VirtualBox Vagrantfile requires no additional plugins or configuration.
 
+## Getting rid of the WARNING message (non-Virtualbox providers)
+
+There is a warning message presented every time you execute a vagrant command with a cloud provider.
+
+```
+WARNING - There are Azure and OpenLogic fees associated with running this image.
+  HINT: Add '$OPENLOGIC_CONFIRM="no"' to your Vagrantfile to skip this confirmation.
+Enter 'Y' to continue:
+```
+
+Normally you **must** enter a single capital Y and hit enter to proceed.
+
+If you wish to bypass this requirement, you can do it one of two ways:
+
+1. Set and export an environment variable named `OPENLOGIC_CONFIRM` to a non-null value: `export OPENLOGIC_CONFIRM=skip`
+
+-or-
+
+2. Add `$OPENLOGIC_CONFIRM="no"` somewhere in your Vagrantfile
+
+The message will be displayed as an info message without a confirmation:
+
+```
+INFO - You have accepted all Azure and OpenLogic charges associated with running this image.
+```
 
 ## Support
 
