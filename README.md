@@ -81,20 +81,26 @@ Some providers require additional steps to install, configure or use
 
 All others require some additional steps
 
-- All (metadata json method)
+**Common Steps** (choose either Metatdata or Full URL method)
+
+- Metadata method
   - This method is preferred since it preserves the box version info
   - `wget https://github.com/N3WWN/vagrant_deployment_guide/raw/centos-8/metadata-8.json`
     - NOTE: You must re-download this file if a new box version is released, but it will contain all published versions
   - `vagrant box add ./metadata-8.json`
   - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-8.json`
   - `vagrant init openlogic/centos-8`
-- All (Full URL method)
+  - Proceed to the provider specific steps below
+- Full URL method
   - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/centos-8' (v0) for provider: azure`
   - `vagrant box add --name openlogic/centos-8 --provider aws https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/aws.box`
   - `vagrant box add --name openlogic/centos-8 --provider azure https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/azure.box`
   - `vagrant box add --name openlogic/centos-8 --provider google https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/google.box`
   - `vagrant init openlogic/centos-8`
-  
+  - Proceed to the provider specific steps below
+
+**Provider-specific Steps**
+
 - AWS
   - Perform your chosen "All" method above
   - Edit Vagrantfile, adding the information shown in the next section for the AWS provider
@@ -129,7 +135,7 @@ The AWS Vagrantfile takes advantage of the [vagrant-aws](https://github.com/mitc
 
 The AWS AMI ID changes in each region.  By default, the default AMI in the box file is for region us-east-1.  If you wish to launch the instance within a different region, uncomment the `aws.region` parameter and set it appropriately.
 
-The default instance type is t3.small (2x vCPU, 2 GB RAM) because it is available in 51 of the 53 availability zones (as of Dec 30, 2020).  
+The default instance type is t3.small (2x vCPU, 2 GB RAM) because it is available in all 16 regions (that I can see) as well as 51 of the 53 availability zones (that I can see... as of Dec 30, 2020).  
 
 ### Azure
 
