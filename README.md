@@ -69,7 +69,7 @@ The stock google plugin is too old:
 
 - vagrant-google plugin
   - vagrant-google 0.2.3 (stock plugin)
-  
+
 ### Installing the boxes
 
 Some providers require additional steps to install, configure or use
@@ -81,12 +81,17 @@ Some providers require additional steps to install, configure or use
 
 All others require some additional steps
 
-**Common Steps** (choose either Metatdata or Full URL method)
+**Common Steps** (choose either Vagrant Cloud, Metadata or Full URL method)
 
+- Vagrant Cloud method
+  - This method is preferred since it preserves the box version info and version checks/upgrading works
+  - `vagrant box add openlogic/centos-7`
+  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-7.json`
+  - `vagrant init openlogic/centos-7`
+  - Proceed to the provider specific steps below
 - Metadata method
-  - This method is preferred since it preserves the box version info
+  - This method is the next preferred since it preserves the box version info, but you must re-download the metadata file if a new box version is released, but it will contain all published versions
   - `wget https://github.com/N3WWN/vagrant_deployment_guide/raw/centos-8/metadata-8.json`
-    - NOTE: You must re-download this file if a new box version is released, but it will contain all published versions
   - `vagrant box add ./metadata-8.json`
   - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-8.json`
   - `vagrant init openlogic/centos-8`
@@ -179,7 +184,7 @@ There is a warning message presented every time you execute a vagrant command wi
 ```
 WARNING - There are Azure and OpenLogic fees associated with running this image.
   HINT: Add '$OPENLOGIC_CONFIRM="no"' to your Vagrantfile to skip this confirmation.
-Enter 'Y' to continue: 
+Enter 'Y' to continue:
 ```
 
 Normally you **must** enter a single capital Y and hit enter to proceed.
