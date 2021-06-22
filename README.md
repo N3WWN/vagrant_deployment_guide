@@ -5,7 +5,7 @@
 
 All boxes use the latest OpenLogic cloud image for the Rocky Linux version as of the date encoded in the release version.
 
-_i.e. `8.4.v20210621` will launch the latest OpenLogic Rocky Linux 8.4 images on each cloud provider as of Jun 22, 2021._
+_i.e. `8.4.v20210618` will launch the latest OpenLogic Rocky Linux 8.4 images on each cloud provider as of Jun 22, 2021._
 
 ## Image Variations
 
