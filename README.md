@@ -3,37 +3,37 @@
 
 ## Image Versions
 
-All boxes use the latest OpenLogic cloud image for the CentOS version as of the date encoded in the release version.
+All boxes use the latest OpenLogic cloud image for the Rocky Linux version as of the date encoded in the release version.
 
-_i.e. `8.2.20201028` will launch the latest OpenLogic CentOS 8.2 images on each cloud provider as of Oct 28, 2020._
+_i.e. `8.4.v20210621` will launch the latest OpenLogic Rocky Linux 8.4 images on each cloud provider as of Jun 22, 2021._
 
 ## Image Variations
 
-For this release, the AWS, Google and VirtualBox images are identical, but the Azure image is slightly different.  This is because the AWS, Google and VirtualBox images are entirely OpenLogic images whereas the Azure images are built and maintained by OpenLogic for Microsoft specifically for Azure.
+For this release, the AWS, Azure, Google and VirtualBox images will be identical when they are publicly available.  
 
-The AWS and Google images include 9x5 support (email-only) from our team of Tier 4 architects and engineers.  Upon login, support details are presented on the terminal.  The Azure and VirtualBox images are not supported in this manner, but support contracts are available directly from OpenLogic.
+The AWS, Azure and Google images include 9x5 support (email-only) from our team of Tier 4 architects and engineers.  Upon login, support details are presented on the terminal.  The Azure and VirtualBox images are not supported in this manner, but support contracts are available directly from OpenLogic.
 
 ## Image Comparison
 
 - AWS
   - Support: OpenLogic support **included**
   - Fees: AWS infrastructure fees + OpenLogic image fees
-  - Version: OpenLogic enhanced support - CentOS 8 Standard (ENA-enabled) - centos-8-2-plain-v20200715
-  - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B084T81SXD/)
+  - Version: OpenLogic - Rocky Linux 8 Standard (ENA-enabled) - rockylinux-8-4-v20210621
+  - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B097NQS3XG/)
 - Azure
-  - Support: OpenLogic support **_NOT_** included
-  - Fees: Azure infrastructure fees only (no OpenLogic image fees)
-  - Version: OpenLogic:CentOS:8_2-gen2:8.2.2020100601
+  - Support: OpenLogic support **included**
+  - Fees: Azure infrastructure fees + OpenLogic image fees
+  - Version: Perforce:RockyLinux:8:8.4.2021062100
   - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
 - Google
   - Support: OpenLogic support **included**
   - Fees: Google infrastructure fees + OpenLogic image fees
-  - Version: centos-8-2-plain-v20200715
+  - Version: rockylinux-8-4-v20210621
   - Marketplace: [Perforce/OpenLogic @ Google Cloud Marketplace](https://console.cloud.google.com/marketplace/partners/zend-integration-public)
 - VirtualBox
   - Support: OpenLogic support **_NOT_** included
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
-  - Version: centos-8-2-plain-v20201021
+  - Version: rockylinux-8-4-v20210621
 
 ## Preparing your system
 
@@ -76,7 +76,7 @@ Some providers require additional steps to install, configure or use
 
 - VirtualBox
   - No special configuration or installation required
-  - `vagrant init openlogic/centos-8`
+  - `vagrant init openlogic/rockylinux-8`
   - `vagrant up --provider=virtualbox`
 
 All others require some additional steps
@@ -85,23 +85,23 @@ All others require some additional steps
 
 - Vagrant Cloud method
   - This method is preferred since it preserves the box version info and version checks/upgrading works
-  - `vagrant box add openlogic/centos-7`
+  - `vagrant box add openlogic/rockylinux-8`
   - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-7.json`
-  - `vagrant init openlogic/centos-7`
+  - `vagrant init openlogic/rockylinux-8`
   - Proceed to the provider specific steps below
 - Metadata method
   - This method is the next preferred since it preserves the box version info, but you must re-download the metadata file if a new box version is released, but it will contain all published versions
-  - `wget https://github.com/N3WWN/vagrant_deployment_guide/raw/centos-8/metadata-8.json`
+  - `wget https://github.com/N3WWN/vagrant_deployment_guide/raw/rockylinux-8/metadata-8.json`
   - `vagrant box add ./metadata-8.json`
   - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-8.json`
-  - `vagrant init openlogic/centos-8`
+  - `vagrant init openlogic/rockylinux-8`
   - Proceed to the provider specific steps below
 - Full URL method
-  - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/centos-8' (v0) for provider: azure`
-  - `vagrant box add --name openlogic/centos-8 --provider aws https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/aws.box`
-  - `vagrant box add --name openlogic/centos-8 --provider azure https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/azure.box`
-  - `vagrant box add --name openlogic/centos-8 --provider google https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/google.box`
-  - `vagrant init openlogic/centos-8`
+  - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/rockylinux-8' (v0) for provider: azure`
+  - `vagrant box add --name openlogic/rockylinux-8 --provider aws https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20210618/providers/aws.box`
+  - `vagrant box add --name openlogic/rockylinux-8 --provider azure https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20210618/providers/azure.box`
+  - `vagrant box add --name openlogic/rockylinux-8 --provider google https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20210618/providers/google.box`
+  - `vagrant init openlogic/rockylinux-8`
   - Proceed to the provider specific steps below
 
 **Provider-specific Steps**
@@ -208,10 +208,10 @@ INFO - You have accepted all Azure and OpenLogic charges associated with running
 
 Included with some of our images (see the table above) is 9x5 email-only support from our team of Tier 4 architects and engineers.  
 
-Please send support requests to image-support@openlogic.com including your name, email, CentOS solution name and Cloud Account ID that is running this image.
+Please send support requests to image-support@openlogic.com including your name, email, Rocky Linux solution name and Cloud Account ID that is running this image.
 
 Silver (12x5) and Gold (24x7) support options are also available. 
 
 ## Next Steps
 
-If you want to learn more about OpenLogic by Perforce, our Open Source Software support, including CentOS support, visit us at http://www.openlogic.com , email us at info@perforce.com or call us at +1 612.517.2100
+If you want to learn more about OpenLogic by Perforce, our Open Source Software support, including Enterprise Linux support, visit us at http://www.openlogic.com , email us at info@perforce.com or call us at +1 612.517.2100
