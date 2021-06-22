@@ -20,12 +20,12 @@ The AWS, Azure and Google images include 9x5 support (email-only) from our team 
   - Fees: AWS infrastructure fees + OpenLogic image fees
   - Version: OpenLogic - Rocky Linux 8 Standard (ENA-enabled) - rockylinux-8-4-v20210621
   - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B097NQS3XG/)
-- Azure
+- Azure (availability pending as of June 22, 2021)
   - Support: OpenLogic support **included**
   - Fees: Azure infrastructure fees + OpenLogic image fees
   - Version: Perforce:RockyLinux:8:8.4.2021062100
   - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?page=1&search=perforce%20rocky%20linux) (TBD)
-- Google
+- Google (availability pending as of June 22, 2021)
   - Support: OpenLogic support **included**
   - Fees: Google infrastructure fees + OpenLogic image fees
   - Version: rockylinux-8-4-v20210621
