@@ -24,7 +24,7 @@ The AWS, Azure and Google images include 9x5 support (email-only) from our team 
   - Support: OpenLogic support **included**
   - Fees: Azure infrastructure fees + OpenLogic image fees
   - Version: Perforce:RockyLinux:8:8.4.2021062100
-  - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
+  - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?page=1&search=perforce%20rocky%20linux) (TBD)
 - Google
   - Support: OpenLogic support **included**
   - Fees: Google infrastructure fees + OpenLogic image fees
@@ -33,7 +33,7 @@ The AWS, Azure and Google images include 9x5 support (email-only) from our team 
 - VirtualBox
   - Support: OpenLogic support **_NOT_** included
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
-  - Version: rockylinux-8-4-v20210621
+  - Version: rockylinux-8-4-v20210618
 
 ## Preparing your system
 
