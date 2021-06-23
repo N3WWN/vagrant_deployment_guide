@@ -98,9 +98,9 @@ All others require some additional steps
   - Proceed to the provider specific steps below
 - Full URL method
   - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/almalinux-8' (v0) for provider: azure`
-  - `vagrant box add --name openlogic/almalinux-8 --provider aws https://app.vagrantup.com/openlogic/boxes/almalinux-8/versions/8.4.v20210618/providers/aws.box`
-  - `vagrant box add --name openlogic/almalinux-8 --provider azure https://app.vagrantup.com/openlogic/boxes/almalinux-8/versions/8.4.v20210618/providers/azure.box`
-  - `vagrant box add --name openlogic/almalinux-8 --provider google https://app.vagrantup.com/openlogic/boxes/almalinux-8/versions/8.4.v20210618/providers/google.box`
+  - `vagrant box add --name openlogic/almalinux-8 --provider aws https://app.vagrantup.com/openlogic/boxes/almalinux-8/versions/8.4.20210623/providers/aws.box`
+  - `vagrant box add --name openlogic/almalinux-8 --provider azure https://app.vagrantup.com/openlogic/boxes/almalinux-8/versions/8.4.20210623/providers/azure.box`
+  - `vagrant box add --name openlogic/almalinux-8 --provider google https://app.vagrantup.com/openlogic/boxes/almalinux-8/versions/8.4.20210623/providers/google.box`
   - `vagrant init openlogic/almalinux-8`
   - Proceed to the provider specific steps below
 
