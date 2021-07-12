@@ -5,35 +5,42 @@
 
 All boxes use the latest OpenLogic cloud image for the CentOS version as of the date encoded in the release version.
 
-_i.e. `8.2.20201028` will launch the latest OpenLogic CentOS 8.2 images on each cloud provider as of Oct 28, 2020._
+_i.e. `8.4.20210624` will launch the latest OpenLogic CentOS 8.4 images on each cloud provider as of June 24, 2021._
 
 ## Image Variations
 
-For this release, the AWS, Google and VirtualBox images are identical, but the Azure image is slightly different.  This is because the AWS, Google and VirtualBox images are entirely OpenLogic images whereas the Azure images are built and maintained by OpenLogic for Microsoft specifically for Azure.
+As of CentOS 8.4, the AWS, Azure, Google and VirtualBox images are identical.  While we still build the official Azure CentOS images for Microsoft, the vagrant box images are now our identical on all clouds with the added bonus that the Azure images now include support.
 
-The AWS and Google images include 9x5 support (email-only) from our team of Tier 4 architects and engineers.  Upon login, support details are presented on the terminal.  The Azure and VirtualBox images are not supported in this manner, but support contracts are available directly from OpenLogic.
+_For versions older than CentOS 8.4, the AWS, Google and VirtualBox images are identical, but the Azure image is slightly different.  This is because the AWS, Google and VirtualBox images are entirely OpenLogic images whereas the Azure images are built and maintained by OpenLogic for Microsoft specifically for Azure._
+
+The AWS, Azure and Google images include 9x5 support (email-only) from our team of Tier 4 architects and engineers.  Upon login, support details are presented on the terminal.  The VirtualBox images are not supported in this manner, but support contracts are available directly from OpenLogic.
 
 ## Image Comparison
 
 - AWS
   - Support: OpenLogic support **included**
   - Fees: AWS infrastructure fees + OpenLogic image fees
-  - Version: OpenLogic enhanced support - CentOS 8 Standard (ENA-enabled) - centos-8-2-plain-v20200715
+  - Version: OpenLogic enhanced support - CentOS 8 Standard (ENA-enabled) - centos-8-4-v20210624
   - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B084T81SXD/)
-- Azure
+- Azure (CentOS versions <= 8.3)
   - Support: OpenLogic support **_NOT_** included
   - Fees: Azure infrastructure fees only (no OpenLogic image fees)
   - Version: OpenLogic:CentOS:8_2-gen2:8.2.2020100601
   - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
+- Azure (CentOS versions >= 8.4)
+  - Support: OpenLogic support **included**
+  - Fees: Azure infrastructure fees + OpenLogic image fees
+  - Version: Perforce:CentOS8:8:8.4.2021062400
+  - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
 - Google
   - Support: OpenLogic support **included**
   - Fees: Google infrastructure fees + OpenLogic image fees
-  - Version: centos-8-2-plain-v20200715
+  - Version: centos-8-4-v20210624
   - Marketplace: [Perforce/OpenLogic @ Google Cloud Marketplace](https://console.cloud.google.com/marketplace/partners/zend-integration-public)
 - VirtualBox
   - Support: OpenLogic support **_NOT_** included
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
-  - Version: centos-8-2-plain-v20201021
+  - Version: centos-8-4-v20210624
 
 ## Preparing your system
 
@@ -46,7 +53,8 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
 - vagrant-aws plugin
   - vagrant-aws 0.7.2 ([OpenLogic modified plugin](https://github.com/N3WWN/vagrant-aws/blob/master/pkg/vagrant-aws-0.7.2.gem))
 - vagrant-azure plugin
-  - vagrant-azure 2.0.0 ([OpenLogic modified plugin](https://github.com/N3WWN/vagrant-azure/blob/v2.0/pkg/vagrant-azure-2.0.0.gem))
+  - CentOS 8.3 and older ONLY : vagrant-azure 2.0.0 ([OpenLogic modified plugin](https://github.com/N3WWN/vagrant-azure/blob/v2.0/pkg/vagrant-azure-2.0.0.gem))
+  - CentOS 8.4 and newer : vagrant-azure 2.0.0.pre.jeb.pre.0.2 ([OpenLogic built plugin](https://github.com/N3WWN/vagrant-azure/blob/v2.0/pkg/vagrant-azure-2.0.0.pre.jeb.pre.0.2.gem))
 - vagrant-google plugin
   - vagrant-google [2.5.0](https://github.com/mitchellh/vagrant-google)
 
@@ -85,9 +93,9 @@ All others require some additional steps
 
 - Vagrant Cloud method
   - This method is preferred since it preserves the box version info and version checks/upgrading works
-  - `vagrant box add openlogic/centos-7`
-  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-7.json`
-  - `vagrant init openlogic/centos-7`
+  - `vagrant box add openlogic/centos-8`
+  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-8.json`
+  - `vagrant init openlogic/centos-8`
   - Proceed to the provider specific steps below
 - Metadata method
   - This method is the next preferred since it preserves the box version info, but you must re-download the metadata file if a new box version is released, but it will contain all published versions
@@ -98,9 +106,9 @@ All others require some additional steps
   - Proceed to the provider specific steps below
 - Full URL method
   - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/centos-8' (v0) for provider: azure`
-  - `vagrant box add --name openlogic/centos-8 --provider aws https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/aws.box`
-  - `vagrant box add --name openlogic/centos-8 --provider azure https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/azure.box`
-  - `vagrant box add --name openlogic/centos-8 --provider google https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.2.20201028/providers/google.box`
+  - `vagrant box add --name openlogic/centos-8 --provider aws https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.4.20210624/providers/aws.box`
+  - `vagrant box add --name openlogic/centos-8 --provider azure https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.4.20210624/providers/azure.box`
+  - `vagrant box add --name openlogic/centos-8 --provider google https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.4.20210624/providers/google.box`
   - `vagrant init openlogic/centos-8`
   - Proceed to the provider specific steps below
 
