@@ -20,12 +20,12 @@ The AWS, Azure and Google images include 9x5 support (email-only) from our team 
   - Fees: AWS infrastructure fees + OpenLogic image fees
   - Version: OpenLogic - AlmaLinux 8 Standard (ENA-enabled) - almalinux-8-4-v20210623
   - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B091T8CWM4/)
-- Azure (availability pending as of June 23, 2021)
+- Azure
   - Support: OpenLogic support **included**
   - Fees: Azure infrastructure fees + OpenLogic image fees
   - Version: Perforce:AlmaLinux:8:8.4.2021062300
-  - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?page=1&search=perforce%20alma%20linux) (TBD)
-- Google (availability pending as of June 23, 2021)
+  - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
+- Google
   - Support: OpenLogic support **included**
   - Fees: Google infrastructure fees + OpenLogic image fees
   - Version: almalinux-8-4-v20210623
@@ -46,7 +46,7 @@ The AWS, Azure and Google images include 9x5 support (email-only) from our team 
 - vagrant-aws plugin
   - vagrant-aws 0.7.2 ([OpenLogic modified plugin](https://github.com/N3WWN/vagrant-aws/blob/master/pkg/vagrant-aws-0.7.2.gem))
 - vagrant-azure plugin
-  - vagrant-azure 2.0.0 ([OpenLogic modified plugin](https://github.com/N3WWN/vagrant-azure/blob/v2.0/pkg/vagrant-azure-2.0.0.gem))
+  - vagrant-azure 2.0.0.pre.jeb.pre.0.2 ([OpenLogic built plugin](https://github.com/N3WWN/vagrant-azure/blob/v2.0/pkg/vagrant-azure-2.0.0.pre.jeb.pre.0.2.gem))
 - vagrant-google plugin
   - vagrant-google [2.5.0](https://github.com/mitchellh/vagrant-google)
 
@@ -158,6 +158,14 @@ The Azure Vagrantfile takes advantage of the [vagrant-azure](https://github.com/
 
     azure.vm_password = "PASSWORD"
   end
+```
+
+Additionally, the Azure Marketplace terms for the OpenLogic image need to be accepted:
+
+PowerShell:
+```
+$agreementTerms=Get-AzMarketplaceterms -Publisher perforce -Product almalinux8 -Name 8
+Set-AzMarketplaceTerms -Publisher perforce -Product almalinux8 -Name 8 -Terms $agreementTerms -Accept
 ```
 
 ### Google
