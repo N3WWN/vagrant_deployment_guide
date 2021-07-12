@@ -172,8 +172,8 @@ Additionally, the Azure Marketplace terms for the OpenLogic image need to be acc
 
 PowerShell:
 ```
-  $agreementTerms=Get-AzMarketplaceterms -Publisher perforce -Product rockylinux8 -Name 8
-  Set-AzMarketplaceTerms -Publisher perforce -Product rockylinux8 -Name 8 -Terms $agreementTerms -Accept
+$agreementTerms=Get-AzMarketplaceterms -Publisher perforce -Product centos8 -Name 8
+Set-AzMarketplaceTerms -Publisher perforce -Product centos8 -Name 8 -Terms $agreementTerms -Accept
 ```
 
 ### Google
