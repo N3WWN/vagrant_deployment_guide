@@ -160,6 +160,14 @@ The Azure Vagrantfile takes advantage of the [vagrant-azure](https://github.com/
   end
 ```
 
+Additionally, the Azure Marketplace terms for the OpenLogic image need to be accepted:
+
+PowerShell:
+```
+$agreementTerms=Get-AzMarketplaceterms -Publisher perforce -Product centos7 -Name 7
+Set-AzMarketplaceTerms -Publisher perforce -Product centos7 -Name 7 -Terms $agreementTerms -Accept
+```
+
 ### Google
 
 The Google Vagrantfile takes advantage of the [vagrant-google](https://github.com/mitchellh/vagrant-google) plugin and requires at least this minimum configuration:
