@@ -5,35 +5,35 @@
 
 All boxes use the latest OpenLogic cloud image for the CentOS version as of the date encoded in the release version.
 
-_i.e. `7.9.20201231` will launch the latest OpenLogic CentOS 7.9 images on each cloud provider as of Dec 31, 2020._
+_i.e. `7.9.20210616` will launch the latest OpenLogic CentOS 7.9 images on each cloud provider as of Jun 16, 2021._
 
 ## Image Variations
 
-For this release, the AWS, Google and VirtualBox images are identical, but the Azure image is slightly different.  This is because the AWS, Google and VirtualBox images are entirely OpenLogic images whereas the Azure images are built and maintained by OpenLogic for Microsoft specifically for Azure.
+For this release, the AWS, Azure, Google and VirtualBox images will be identical when they are publicly available.  
 
-The AWS and Google images include 9x5 support (email-only) from our team of Tier 4 architects and engineers.  Upon login, support details are presented on the terminal.  The Azure and VirtualBox images are not supported in this manner, but support contracts are available directly from OpenLogic.
+The AWS, Azure and Google images include 9x5 support (email-only) from our team of Tier 4 architects and engineers.  Upon login, support details are presented on the terminal.  The Azure and VirtualBox images are not supported in this manner, but support contracts are available directly from OpenLogic.
 
 ## Image Comparison
 
 - AWS
   - Support: OpenLogic support **included**
   - Fees: AWS infrastructure fees + OpenLogic image fees
-  - Version: OpenLogic enhanced support - CentOS 7 Standard (ENA-enabled) - centos-7-9-plain-v20201215
-  - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B082325LCR/)
+  - Version: CentOS 7 (x86_64) from OpenLogic by Perforce - centos-7-9-v20210616
+  - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B099FB45DR/)
 - Azure
-  - Support: OpenLogic support **_NOT_** included
-  - Fees: Azure infrastructure fees only (no OpenLogic image fees)
-  - Version: OpenLogic:CentOS:7_9-gen2:7.9.2020111901
-  - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
+  - Support: OpenLogic support **included**
+  - Fees: Azure infrastructure fees + OpenLogic image fees
+  - Version: Perforce:CentOS7:7:7.9.2021061600
+  - Marketplace: [OpenLogic by Perforce @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=perforce)
 - Google
   - Support: OpenLogic support **included**
   - Fees: Google infrastructure fees + OpenLogic image fees
-  - Version: openlogic-centos-7-9-plain-v20201124
+  - Version: openlogic-centos-7-9-v20210616
   - Marketplace: [Perforce/OpenLogic @ Google Cloud Marketplace](https://console.cloud.google.com/marketplace/partners/zend-integration-public)
 - VirtualBox
   - Support: OpenLogic support **_NOT_** included
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
-  - Version: centos-7-9-plain-v20201215
+  - Version: centos-7-9-v20210616
 
 ## Preparing your system
 
@@ -46,7 +46,7 @@ The AWS and Google images include 9x5 support (email-only) from our team of Tier
 - vagrant-aws plugin
   - vagrant-aws 0.7.2 ([OpenLogic modified plugin](https://github.com/N3WWN/vagrant-aws/blob/master/pkg/vagrant-aws-0.7.2.gem))
 - vagrant-azure plugin
-  - vagrant-azure 2.0.0 ([OpenLogic modified plugin](https://github.com/N3WWN/vagrant-azure/blob/v2.0/pkg/vagrant-azure-2.0.0.gem))
+  - vagrant-azure 2.0.0.pre.jeb.pre.0.2 ([OpenLogic built plugin](https://github.com/N3WWN/vagrant-azure/blob/v2.0/pkg/vagrant-azure-2.0.0.pre.jeb.pre.0.2.gem))
 - vagrant-google plugin
   - vagrant-google [2.5.0](https://github.com/mitchellh/vagrant-google)
 
@@ -76,7 +76,7 @@ Some providers require additional steps to install, configure or use
 
 - VirtualBox
   - No special configuration or installation required
-  - `vagrant init openlogic/centos-8`
+  - `vagrant init openlogic/centos-7`
   - `vagrant up --provider=virtualbox`
 
 All others require some additional steps
@@ -98,9 +98,9 @@ All others require some additional steps
   - Proceed to the provider specific steps below
 - Full URL method
   - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/centos-7' (v0) for provider: azure`
-  - `vagrant box add --name openlogic/centos-7 --provider aws https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.9.20201231/providers/aws.box`
-  - `vagrant box add --name openlogic/centos-7 --provider azure https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.9.20201231/providers/azure.box`
-  - `vagrant box add --name openlogic/centos-7 --provider google https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.9.20201231/providers/google.box`
+  - `vagrant box add --name openlogic/centos-7 --provider aws https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.9.20210616/providers/aws.box`
+  - `vagrant box add --name openlogic/centos-7 --provider azure https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.9.20210616/providers/azure.box`
+  - `vagrant box add --name openlogic/centos-7 --provider google https://vagrantcloud.com/openlogic/boxes/centos-7/versions/7.9.20210616/providers/google.box`
   - `vagrant init openlogic/centos-7`
   - Proceed to the provider specific steps below
 
