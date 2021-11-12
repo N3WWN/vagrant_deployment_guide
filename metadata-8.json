@@ -22,6 +22,27 @@
             }
          ],
          "version" : "8.4.v20210618"
+      },
+      {
+         "providers" : [
+            {
+               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20211110/providers/aws.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20211110/providers/azure.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20211110/providers/google.box",
+               "name" : "google"
+            },
+            {
+               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20211110/providers/virtualbox.box",
+               "name" : "virtualbox"
+            }
+         ],
+         "version" : "8.4.v20211110"
       }
    ]
 }
