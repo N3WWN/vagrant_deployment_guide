@@ -64,6 +64,27 @@
             }
          ],
          "version" : "8.4.20211110"
+      },
+      {
+         "providers" : [
+            {
+               "url" : "https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.5.20211123/providers/aws.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.5.20211123/providers/azure.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.5.20211123/providers/google.box",
+               "name" : "google"
+            },
+            {
+               "url" : "https://vagrantcloud.com/openlogic/boxes/centos-8/versions/8.5.20211123/providers/virtualbox.box",
+               "name" : "virtualbox"
+            }
+         ],
+         "version" : "8.5.20211123"
       }
    ]
 }
