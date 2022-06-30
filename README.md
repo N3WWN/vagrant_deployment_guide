@@ -5,7 +5,7 @@
 
 All boxes use the latest OpenLogic cloud image for the AlmaLinux version as of the date encoded in the release version.
 
-_i.e. `8.4.v20210618` will launch the latest OpenLogic AlmaLinux 8.4 images on each cloud provider as of Jun 22, 2021._
+_i.e. `9.0.v20220615` will launch the latest OpenLogic AlmaLinux 9.0 images on each cloud provider as of Jun 30, 2022._
 
 ## Image Variations
 
@@ -18,22 +18,27 @@ The AWS, Azure and Google images include 9x5 support (email-only) from our team 
 - AWS
   - Support: OpenLogic support **included**
   - Fees: AWS infrastructure fees + OpenLogic image fees
-  - Version: OpenLogic - AlmaLinux 8 Standard (ENA-enabled) - almalinux-8-4-v20210623
-  - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B091T8CWM4/)
+  - Version: OpenLogic - AlmaLinux 9 Standard (ENA-enabled) - almalinux-9.0-v20220615
+  - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-ne4uq43iicvy6)
 - Azure
   - Support: OpenLogic support **included**
   - Fees: Azure infrastructure fees + OpenLogic image fees
-  - Version: Perforce:AlmaLinux:8:8.4.2021062300
+  - Version (Gen1): Perforce:AlmaLinux:9:9.0.2022061500
+  - Version (Gen2): Perforce:AlmaLinux:9:9.0.2022061501
   - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
 - Google
   - Support: OpenLogic support **included**
   - Fees: Google infrastructure fees + OpenLogic image fees
-  - Version: almalinux-8-4-v20210623
+  - Version: almalinux-9-0-v20220615
   - Marketplace: [Perforce/OpenLogic @ Google Cloud Marketplace](https://console.cloud.google.com/marketplace/partners/zend-integration-public)
 - VirtualBox
   - Support: OpenLogic support **_NOT_** included
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
-  - Version: almalinux-8-4-v20210623
+  - Version: almalinux-9-0-v20220615
+- VMWare
+  - Support: OpenLogic support **_NOT_** included
+  - Fees: None (unless you have internal fees for running VirtualBox VMs)
+  - Version: almalinux-9-0-v20220615
 
 ## Preparing your system
 
@@ -76,7 +81,7 @@ Some providers require additional steps to install, configure or use
 
 - VirtualBox
   - No special configuration or installation required
-  - `vagrant init openlogic/almalinux-8`
+  - `vagrant init openlogic/almalinux-9`
   - `vagrant up --provider=virtualbox`
 
 All others require some additional steps
@@ -85,23 +90,23 @@ All others require some additional steps
 
 - Vagrant Cloud method
   - This method is preferred since it preserves the box version info and version checks/upgrading works
-  - `vagrant box add openlogic/almalinux-8`
+  - `vagrant box add openlogic/almalinux-9`
   - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-7.json`
-  - `vagrant init openlogic/almalinux-8`
+  - `vagrant init openlogic/almalinux-9`
   - Proceed to the provider specific steps below
 - Metadata method
   - This method is the next preferred since it preserves the box version info, but you must re-download the metadata file if a new box version is released, but it will contain all published versions
-  - `wget https://github.com/N3WWN/vagrant_deployment_guide/raw/almalinux-8/metadata-8.json`
-  - `vagrant box add ./metadata-8.json`
-  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-8.json`
-  - `vagrant init openlogic/almalinux-8`
+  - `wget https://github.com/N3WWN/vagrant_deployment_guide/raw/almalinux-9/metadata-9.json`
+  - `vagrant box add ./metadata-9.json`
+  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-9.json`
+  - `vagrant init openlogic/almalinux-9`
   - Proceed to the provider specific steps below
 - Full URL method
-  - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/almalinux-8' (v0) for provider: azure`
-  - `vagrant box add --name openlogic/almalinux-8 --provider aws https://app.vagrantup.com/openlogic/boxes/almalinux-8/versions/8.4.20210623/providers/aws.box`
-  - `vagrant box add --name openlogic/almalinux-8 --provider azure https://app.vagrantup.com/openlogic/boxes/almalinux-8/versions/8.4.20210623/providers/azure.box`
-  - `vagrant box add --name openlogic/almalinux-8 --provider google https://app.vagrantup.com/openlogic/boxes/almalinux-8/versions/8.4.20210623/providers/google.box`
-  - `vagrant init openlogic/almalinux-8`
+  - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/almalinux-9' (v0) for provider: azure`
+  - `vagrant box add --name openlogic/almalinux-9 --provider aws https://app.vagrantup.com/openlogic/boxes/almalinux-9/versions/9.0.20220615/providers/aws.box`
+  - `vagrant box add --name openlogic/almalinux-9 --provider azure https://app.vagrantup.com/openlogic/boxes/almalinux-9/versions/9.0.20220615/providers/azure.box`
+  - `vagrant box add --name openlogic/almalinux-9 --provider google https://app.vagrantup.com/openlogic/boxes/almalinux-9/versions/9.0.20220615/providers/google.box`
+  - `vagrant init openlogic/almalinux-9`
   - Proceed to the provider specific steps below
 
 **Provider-specific Steps**
@@ -164,8 +169,10 @@ Additionally, the Azure Marketplace terms for the OpenLogic image need to be acc
 
 PowerShell:
 ```
-$agreementTerms=Get-AzMarketplaceterms -Publisher perforce -Product almalinux8 -Name 8
-Set-AzMarketplaceTerms -Publisher perforce -Product almalinux8 -Name 8 -Terms $agreementTerms -Accept
+$agreementTerms=Get-AzMarketplaceterms -Publisher perforce -Product almalinux9 -Name 9
+Set-AzMarketplaceTerms -Publisher perforce -Product almalinux9 -Name 9 -Terms $agreementTerms -Accept
+$agreementTerms=Get-AzMarketplaceterms -Publisher perforce -Product almalinux9 -Name 9-gen2
+Set-AzMarketplaceTerms -Publisher perforce -Product almalinux9 -Name 9-gen2 -Terms $agreementTerms -Accept
 ```
 
 ### Google
