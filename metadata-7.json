@@ -64,6 +64,27 @@
             }
          ],
          "version" : "7.9.20211110"
+      },
+      {
+         "providers" : [
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/CentOS-7.9.v20220608_220712.aws-vagrant.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/CentOS-7.9.v20220608.azure-vagrant.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/CentOS-7.9.v20220608.vmware_desktop-vagrant.box",
+               "name" : "vmware_desktop"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/CentOS-7.9.v20220608.virtualbox-vagrant.box",
+               "name" : "virtualbox"
+            }
+         ],
+         "version" : "7.9.20220608"
       }
    ]
 }
