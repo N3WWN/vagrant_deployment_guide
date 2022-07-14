@@ -1,69 +1,27 @@
 {
-   "description" : "A collection of OpenLogic's Rocky Linux 8 public and private cloud images (supported and unsupported)",
-   "name" : "openlogic/rockylinux-8",
+   "description" : "A collection of OpenLogic's Rocky Linux 9 public and private cloud images (supported and unsupported)",
+   "name" : "openlogic/rockylinux-9",
    "versions" : [
       {
          "providers" : [
             {
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20210618/providers/aws.box",
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9.0.v20220714.aws-vagrant.box",
                "name" : "aws"
             },
             {
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20210618/providers/azure.box",
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9.0.v20220714.azure-vagrant.box",
                "name" : "azure"
             },
             {
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20210618/providers/google.box",
-               "name" : "google"
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-0-v20220714.virtualbox-vagrant.box",
+               "name" : "virtualbox"
             },
             {
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20210618/providers/virtualbox.box",
-               "name" : "virtualbox"
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-0-v20220714.vmware_desktop-vagrant.box",
+               "name" : "vmware_desktop"
             }
          ],
-         "version" : "8.4.v20210618"
-      },
-      {
-         "providers" : [
-            {
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20211110/providers/aws.box",
-               "name" : "aws"
-            },
-            {
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20211110/providers/azure.box",
-               "name" : "azure"
-            },
-            {
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20211110/providers/google.box",
-               "name" : "google"
-            },
-            {
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20211110/providers/virtualbox.box",
-               "name" : "virtualbox"
-            }
-         ],
-         "version" : "8.4.v20211110"
-      },
-      {  
-         "providers" : [
-            {
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.5.v20211116/providers/aws.box",
-               "name" : "aws"
-            }, 
-            {  
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.5.v20211116/providers/azure.box",
-               "name" : "azure"
-            }, 
-            {  
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.5.v20211116/providers/google.box",
-               "name" : "google"
-            }, 
-            {  
-               "url" : "https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.5.v20211116/providers/virtualbox.box",
-               "name" : "virtualbox"
-            }  
-         ],    
-         "version" : "8.5.v20211116"
+         "version" : "9.0.v20220714"
       }  
    ]
 }
