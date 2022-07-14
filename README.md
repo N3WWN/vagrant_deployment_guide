@@ -5,7 +5,7 @@
 
 All boxes use the latest OpenLogic cloud image for the Rocky Linux version as of the date encoded in the release version.
 
-_i.e. `8.4.v20210618` will launch the latest OpenLogic Rocky Linux 8.4 images on each cloud provider as of Jun 22, 2021._
+_i.e. `9.0.v20220714` will launch the latest OpenLogic Rocky Linux 9.0 images on each cloud provider as of July 14, 2022._
 
 ## Image Variations
 
@@ -18,41 +18,39 @@ The AWS, Azure and Google images include 9x5 support (email-only) from our team 
 - AWS
   - Support: OpenLogic support **included**
   - Fees: AWS infrastructure fees + OpenLogic image fees
-  - Version: OpenLogic - Rocky Linux 8 Standard (ENA-enabled) - rockylinux-8-4-v20210621
+  - Version: OpenLogic - Rocky Linux 8 Standard (ENA-enabled) - rockylinux-9-0-v20220714
   - Marketplace: [RogueWave/OpenLogic @ AWS Marketplace](https://aws.amazon.com/marketplace/pp/B097NQS3XG/)
 - Azure
   - Support: OpenLogic support **included**
   - Fees: Azure infrastructure fees + OpenLogic image fees
-  - Version: Perforce:RockyLinux8:8:8.4.2021062100
+  - Version: Perforce:RockyLinux9:9:9.0.2021071401
   - Marketplace: [OpenLogic @ Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=openlogic&page=1) (partial image list)
-- Google
-  - Support: OpenLogic support **included**
-  - Fees: Google infrastructure fees + OpenLogic image fees
-  - Version: rockylinux-8-4-v20210621
-  - Marketplace: [Perforce/OpenLogic @ Google Cloud Marketplace](https://console.cloud.google.com/marketplace/partners/zend-integration-public)
 - VirtualBox
   - Support: OpenLogic support **_NOT_** included
   - Fees: None (unless you have internal fees for running VirtualBox VMs)
-  - Version: rockylinux-8-4-v20210618
+  - Version: rockylinux-9-0-v20220714
+- VMWare
+  - Support: OpenLogic support **_NOT_** included
+  - Fees: None (unless you have internal fees for running VMWare VMs)
+  - Version: rockylinux-9-0-v20220714
 
 ## Preparing your system
 
 ### Known working vagrant/plugin versions
 
 - Vagrant
-  - Vagrant 2.2.10
   - Vagrant 2.2.14
   
 - vagrant-aws plugin
   - vagrant-aws 0.7.2 ([OpenLogic modified plugin](https://github.com/N3WWN/vagrant-aws/blob/master/pkg/vagrant-aws-0.7.2.gem))
 - vagrant-azure plugin
   - vagrant-azure 2.0.0.pre.jeb.pre.0.2 ([OpenLogic built plugin](https://github.com/N3WWN/vagrant-azure/blob/v2.0/pkg/vagrant-azure-2.0.0.pre.jeb.pre.0.2.gem))
-- vagrant-google plugin
-  - vagrant-google [2.5.0](https://github.com/mitchellh/vagrant-google)
+- vagrant-vmware-desktop plugin
+  - vagrant-vmware-desktop 3.0.1
 
 In order to be able to use all providers, install the plugins in this order: 
 
-`vagrant-aws -> vagrant-azure -> vagrant-google`
+`vagrant-aws -> vagrant-azure`
 
 If you only wish to use one of the providers, you do not need to use the OpenLogic modified plugins, but we recommend that you use the version(s) listed.
 
@@ -76,7 +74,7 @@ Some providers require additional steps to install, configure or use
 
 - VirtualBox
   - No special configuration or installation required
-  - `vagrant init openlogic/rockylinux-8`
+  - `vagrant init openlogic/rockylinux-9`
   - `vagrant up --provider=virtualbox`
 
 All others require some additional steps
@@ -85,23 +83,23 @@ All others require some additional steps
 
 - Vagrant Cloud method
   - This method is preferred since it preserves the box version info and version checks/upgrading works
-  - `vagrant box add openlogic/rockylinux-8`
-  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-7.json`
-  - `vagrant init openlogic/rockylinux-8`
+  - `vagrant box add openlogic/rockylinux-9`
+  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-9.json`
+  - `vagrant init openlogic/rockylinux-9`
   - Proceed to the provider specific steps below
 - Metadata method
   - This method is the next preferred since it preserves the box version info, but you must re-download the metadata file if a new box version is released, but it will contain all published versions
-  - `wget https://github.com/N3WWN/vagrant_deployment_guide/raw/rockylinux-8/metadata-8.json`
-  - `vagrant box add ./metadata-8.json`
-  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-8.json`
-  - `vagrant init openlogic/rockylinux-8`
+  - `wget https://github.com/N3WWN/vagrant_deployment_guide/raw/rockylinux-9/metadata-9.json`
+  - `vagrant box add ./metadata-9.json`
+  - Vagrant will ask you which provider box to install... or you can specify the provider with the --provider parameter.  Example: `vagrant box add --provider=aws ./metadata-9.json`
+  - `vagrant init openlogic/rockylinux-9`
   - Proceed to the provider specific steps below
 - Full URL method
-  - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/rockylinux-8' (v0) for provider: azure`
-  - `vagrant box add --name openlogic/rockylinux-8 --provider aws https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20210618/providers/aws.box`
-  - `vagrant box add --name openlogic/rockylinux-8 --provider azure https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20210618/providers/azure.box`
-  - `vagrant box add --name openlogic/rockylinux-8 --provider google https://app.vagrantup.com/openlogic/boxes/rockylinux-8/versions/8.4.v20210618/providers/google.box`
-  - `vagrant init openlogic/rockylinux-8`
+  - This method works, but the box is always version 0 as shown in the vagrant box output: `box: Adding box 'openlogic/rockylinux-9' (v0) for provider: azure`
+  - `vagrant box add --name openlogic/rockylinux-9 --provider aws https://app.vagrantup.com/openlogic/boxes/rockylinux-9/versions/9.0.v20220714/providers/aws.box`
+  - `vagrant box add --name openlogic/rockylinux-9 --provider azure https://app.vagrantup.com/openlogic/boxes/rockylinux-9/versions/9.0.v20220714/providers/azure.box`
+  - `vagrant box add --name openlogic/rockylinux-9 --provider google https://app.vagrantup.com/openlogic/boxes/rockylinux-9/versions/9.0.v20220714/providers/google.box`
+  - `vagrant init openlogic/rockylinux-9`
   - Proceed to the provider specific steps below
 
 **Provider-specific Steps**
@@ -114,10 +112,10 @@ All others require some additional steps
   - Perform your chosen "All" method above
   - Edit Vagrantfile, adding the information shown in the next section for the Azure provider
   - `vagrant up --provider=azure`
-- Google
+- VMWare
   - Perform your chosen "All" method above
-  - Edit Vagrantfile, adding the information shown in the next section for the Google provider
-  - `vagrant up --provider=google`
+  - Edit Vagrantfile, adding the information shown in the next section for the VMWare Desktop provider
+  - `vagrant up --provider=vmware_desktop`
 
 ## Configuration
 
@@ -164,8 +162,8 @@ Additionally, the Azure Marketplace terms for the OpenLogic image need to be acc
 
 PowerShell:
 ```
-$agreementTerms=Get-AzMarketplaceterms -Publisher perforce -Product rockylinux8 -Name 8
-Set-AzMarketplaceTerms -Publisher perforce -Product rockylinux8 -Name 8 -Terms $agreementTerms -Accept
+$agreementTerms=Get-AzMarketplaceterms -Publisher perforce -Product rockylinux9 -Name 9
+Set-AzMarketplaceTerms -Publisher perforce -Product rockylinux9 -Name 9 -Terms $agreementTerms -Accept
 ```
 
 ### Google
@@ -181,12 +179,15 @@ The Google Vagrantfile takes advantage of the [vagrant-google](https://github.co
     override.ssh.private_key_path = "/path/to/your/private_key"
   end
 ```
-
 ### VirtualBox
 
 The VirtualBox Vagrantfile requires no additional plugins or configuration.
 
-## Getting rid of the WARNING message (non-Virtualbox providers)
+### VMWare
+
+The VMWare Vagrantfile requires no additional plugins or configuration.
+
+## Getting rid of the WARNING message (non-Virtualbox and non-VMWare providers)
 
 There is a warning message presented every time you execute a vagrant command with a cloud provider.
 
