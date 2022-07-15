@@ -5,11 +5,11 @@
       {
          "providers" : [
             {
-               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9.0.v20220714.aws-vagrant.box",
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-0-v20220714.aws-vagrant.box",
                "name" : "aws"
             },
             {
-               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9.0.v20220714.azure-vagrant.box",
+               "url" : "https://repo.openlogic.com/openlogic/public/images/RockyLinux-9-0-v20220714.azure-vagrant.box",
                "name" : "azure"
             },
             {
