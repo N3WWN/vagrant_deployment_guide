@@ -64,6 +64,52 @@
             }
          ],
          "version" : "8.5.v20211209"
+      },
+      {
+         "providers" : [
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-8.6.v20220607.aws-vagrant.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-8.6.v20220607.azure-vagrant.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-8.6.v20220607.gce-vagrant.box",
+               "name" : "google"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-8.6.v20220607.virtualbox-vagrant.box",
+               "name" : "virtualbox"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-8-6-v20220607.vmware_desktop-vagrant.box",
+               "name" : "vmware_desktop"
+            }
+         ],
+         "version" : "8.6.v20220607"
+      },
+      {
+         "providers" : [
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-8-7-v20221128.aws-vagrant.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-8-7-v20221128.azure-vagrant.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-8-7-v20221128.virtualbox-vagrant.box",
+               "name" : "virtualbox"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-8-7-v20221128.vmware_desktop-vagrant.box",
+               "name" : "vmware_desktop"
+            }
+         ],
+         "version" : "8.7.v20221128"
       }
    ]
 }
