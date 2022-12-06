@@ -40,11 +40,30 @@
             {
                "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-0-v20221108.vmware_desktop-vagrant.box",
                "name" : "vmware_desktop"
-            },
-            {
             }
          ],
          "version" : "9.0.v20221108"
+      },
+      {
+         "providers" : [
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-1-v20221205.aws-vagrant.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-1-v20221205.azure-vagrant.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-1-v20221205.virtualbox-vagrant.box",
+               "name" : "virtualbox"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-1-v20221205.vmware_desktop-vagrant.box",
+               "name" : "vmware_desktop"
+            }
+         ],
+         "version" : "9.1.v20221205"
       }
    ]
 }
