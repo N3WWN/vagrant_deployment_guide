@@ -55,6 +55,10 @@
                "name" : "azure"
             },
             {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-1-v20221205.gce-vagrant.box",
+               "name" : "google"
+            },
+            {
                "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-1-v20221205.virtualbox-vagrant.box",
                "name" : "virtualbox"
             },
