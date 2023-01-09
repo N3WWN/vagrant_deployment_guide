@@ -97,6 +97,10 @@
                "name" : "azure"
             },
             {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-8-7-v20221116.gce-vagrant.box",
+               "name" : "google"
+            },
+            {
                "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-8-7-v20221116.vmware_desktop-vagrant.box",
                "name" : "vmware_desktop"
             },
