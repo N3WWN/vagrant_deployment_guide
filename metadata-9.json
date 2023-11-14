@@ -72,6 +72,60 @@
             }
          ],
          "version" : "9.1.v20221128"
+      },
+      {
+         "providers" : [
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-2-v20230519.aws-vagrant.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-2-v20230519.azure-vagrant.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-2-v20230519.gce-vagrant.box",
+               "name" : "google"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-2-v20230519.virtualbox-vagrant.box",
+               "name" : "virtualbox"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-2-v20230519.libvirt-vagrant.box",
+               "name" : "libvirt"
+            },
+            {
+            }
+         ],
+         "version" : "9.2.v20230519"
+      },
+      {
+         "providers" : [
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-2-v20230829.aws-vagrant.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-2-v20230829.azure-vagrant.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-2-v20230829.gce-vagrant.box",
+               "name" : "google"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-2-v20230829.virtualbox-vagrant.box",
+               "name" : "virtualbox"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-9-2-v20230829.libvirt-vagrant.box",
+               "name" : "libvirt"
+            },
+            {
+            }
+         ],
+         "version" : "9.2.v20230829"
       }
    ]
 }
