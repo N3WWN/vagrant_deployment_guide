@@ -135,6 +135,31 @@
             }
          ],
          "version" : "8.8.20230531"
+      },
+      {
+         "providers" : [
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-8-9-v20231130.aws-vagrant.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-8-9-v20231130.azure-vagrant.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-8-9-v20231130.gce-vagrant.box",
+               "name" : "google"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-8-9-v20231130.libvirt-vagrant.box",
+               "name" : "libvirt"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/RockyLinux-8-9-v20231130.virtualbox-vagrant.box",
+               "name" : "virtualbox"
+            }
+         ],
+         "version" : "8.9.20231130"
       }
    ]
 }
