@@ -118,6 +118,31 @@
             }
          ],
          "version" : "9.2.v20230829"
+      },
+      {
+         "providers" : [
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-3-v20231205.aws-vagrant.box",
+               "name" : "aws"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-3-v20231205.azure-vagrant.box",
+               "name" : "azure"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-3-v20231205.gce-vagrant.box",
+               "name" : "google"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-3-v20231205.virtualbox-vagrant.box",
+               "name" : "virtualbox"
+            },
+            {
+               "url" : "http://repo.openlogic.com/openlogic/public/images/AlmaLinux-9-3-v20231205.libvirt-vagrant.box",
+               "name" : "libvirt"
+            }
+         ],
+         "version" : "9.3.v20231205"
       }
    ]
 }
